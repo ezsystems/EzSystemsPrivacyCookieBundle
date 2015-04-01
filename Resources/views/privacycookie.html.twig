@@ -1,0 +1,43 @@
+<div class="privacy-cookie-banner" id="privacy-cookie-banner">
+    <div class="col-md-1"></div>
+    <div class="col-md-7 privacy-cookie-banner__message">
+        <p>{% if bannerCaption is empty %}
+               {{ 'Cookies help us create a good experience. By using our website, you agree to our use of cookies.'|trans }}
+           {% else %}
+               {{ bannerCaption }}
+           {% endif %}</p>
+    </div>
+    <div class="col-md-4 privacy-cookie-banner__action">
+        <div class="attribute-link pull-left">
+            <a class="privacy-cookie-banner__btn btn" id="privacy-cookie-banner__privacy-accept" href="javascript:void(0)" title="{{ 'Agree'|trans }}">
+                {{ 'OK'|trans }}
+            </a>
+        </div>
+        <div class="attribute-link pull-left">
+            {% if policyUrl is not empty %}
+                <a class="privacy-cookie-banner__learn-more" href="{{ policyUrl }}" title="{{ 'Learn more'|trans }}">
+                    <i class="privacy-cookie-banner__icon-link"></i> {{ 'Learn more'|trans }}
+                </a>
+            {% endif %}
+        </div>
+        <div class="attribute-link pull-right">
+            <a class="privacy-cookie-banner__close" id="privacy-cookie-banner__privacy-close" href="javascript:void(0)" title="{{ 'Close'|trans }}">
+                <i class="privacy-cookie-banner__icon-close"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    {% autoescape 'js' %}
+        (function() {
+            var privacyCookieBanner = new eZ.PrivacyCookieBanner({
+                cookieName: '{{ cookieName }}',
+                days: {{ days }}
+            });
+            setTimeout(function () {
+                privacyCookieBanner.show()
+            }, 1000);
+        }) ();
+    {% endautoescape %}
+</script>

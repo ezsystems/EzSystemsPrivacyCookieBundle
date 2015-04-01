@@ -1,0 +1,115 @@
+.privacy-cookie-banner {
+    background: #006A8D;
+    overflow: hidden;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+    max-height: 0;
+    opacity: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1024;
+}
+
+.privacy-cookie-banner--slide-down {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    opacity: 0;
+    max-height: 0;
+}
+
+.privacy-cookie-banner--slide-up {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+    max-height: 145px;
+}
+
+.privacy-cookie-banner__message {
+    margin-top: 15px;
+    color: #fff;
+}
+
+.privacy-cookie-banner__btn {
+    margin-top: 10px;
+    background: #FF6400;
+    color: #fff;
+    border: none;
+    height: 30px;
+}
+
+.privacy-cookie-banner__btn:hover,
+.privacy-cookie-banner__btn:focus {
+    background: #FF7A00;
+    color: #fff;
+}
+
+.privacy-cookie-banner__learn-more {
+    margin-top: 14px;
+    margin-left: 20px;
+    color: #fff;
+    display: block;
+    text-decoration: none;
+}
+
+.privacy-cookie-banner__learn-more:hover,
+.privacy-cookie-banner__learn-more:focus {
+    color: #FF6400;
+    text-decoration: none;
+}
+
+.privacy-cookie-banner__close {
+    color: #fff;
+    margin-top: 21px;
+    display: block;
+    opacity: 1;
+    font-size: 10px;
+    text-shadow: none;
+}
+
+.privacy-cookie-banner__close:hover,
+.privacy-cookie-banner__close:focus {
+    color: #FF6400;
+    text-decoration: none;
+}
+
+.privacy-cookie-banner__action {
+    height: 50px;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot?-btxkoh');
+    src:url('../fonts/icomoon.eot?#iefix-btxkoh') format('embedded-opentype'),
+    url('../fonts/icomoon.woff?-btxkoh') format('woff'),
+    url('../fonts/icomoon.ttf?-btxkoh') format('truetype'),
+    url('../fonts/icomoon.svg?-btxkoh#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="privacy-cookie-banner__icon-"],
+[class*=" privacy-cookie-banner__icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* better font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.privacy-cookie-banner__icon-link:before {
+    content: "\e969";
+}
+
+.privacy-cookie-banner__icon-close:before {
+    content: "\ea0f";
+}
