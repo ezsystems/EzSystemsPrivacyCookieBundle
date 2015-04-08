@@ -1,0 +1,12 @@
+parameters:
+    ez_privacy_cookie_twig_extension: EzSystems\PrivacyCookieBundle\Twig\PrivacyCookieTwigExtension
+
+services:
+    ez_privacy_cookie.twig.extension:
+        class: %ez_privacy_cookie_twig_extension%
+        arguments:
+            - @service_container
+            - %ez_privacy_cookie.cookie_name%
+            - %ez_privacy_cookie.days%
+        tags:
+            - { name: twig.extension }
