@@ -106,10 +106,6 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.privacy-cookie-banner__icon-link:before {
-    content: "\e969";
-}
-
 .privacy-cookie-banner__icon-close:before {
     content: "\ea0f";
 }
