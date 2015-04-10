@@ -1,11 +1,7 @@
 <div class="privacy-cookie-banner" id="privacy-cookie-banner">
     <div class="col-md-1"></div>
     <div class="col-md-7 privacy-cookie-banner__message">
-        <p>{% if bannerCaption is empty %}
-               {{ 'Cookies help us create a good experience. By using our website, you agree to our use of cookies.'|trans }}
-           {% else %}
-               {{ bannerCaption }}
-           {% endif %}</p>
+        <p>{{ caption }}</p>
     </div>
     <div class="col-md-4 privacy-cookie-banner__action">
         <div class="attribute-link pull-left">
@@ -14,9 +10,9 @@
             </a>
         </div>
         <div class="attribute-link pull-left">
-            {% if policyUrl is not empty %}
-                <a class="privacy-cookie-banner__learn-more" href="{{ policyUrl }}" title="{{ 'Learn more'|trans }}">
-                    {{ 'Learn more'|trans }}
+            {% if policyPageUrl is not empty %}
+                <a class="privacy-cookie-banner__learn-more" href="{{ policyPageUrl }}" title="{{ learnMoreText }}">
+                    {{ learnMoreText }}
                 </a>
             {% endif %}
         </div>
@@ -33,7 +29,7 @@
         (function() {
             var privacyCookieBanner = new eZ.PrivacyCookieBanner({
                 cookieName: '{{ cookieName }}',
-                days: {{ days }}
+                days: {{ cookieValidity }}
             });
             setTimeout(function () {
                 privacyCookieBanner.show()

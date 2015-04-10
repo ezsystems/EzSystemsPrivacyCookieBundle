@@ -5,9 +5,11 @@
 
 namespace EzSystems\PrivacyCookieBundle\Twig;
 
-use \Symfony\Component\DependencyInjection\ContainerInterface;
-use \Twig_Extension;
-use \Twig_Function_Method;
+use EzSystems\PrivacyCookieBundle\Banner\Banner;
+use EzSystems\PrivacyCookieBundle\Banner\BannerOptions;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Twig_Extension;
+use Twig_Function_Method;
 
 /**
  * PrivacyCookie Twig helper which renders necessary snippet code.
@@ -18,29 +20,25 @@ class PrivacyCookieTwigExtension extends Twig_Extension
      * we must inject service_container this way
      * @link https://github.com/symfony/symfony/issues/2347
      *
-     * @var $container \Symfony\Component\DependencyInjection\ContainerInterface
+     * @var \Symfony\Component\DependencyInjection\ContainerInterface
      */
     protected $container;
 
     /**
-     * default cookie name
-     *
-     * @var $defaultCookieName string
+     * @var \EzSystems\PrivacyCookieBundle\Banner\Banner
      */
-    protected $defaultCookieName;
+    protected $banner;
 
     /**
-     * default cookie validity days
-     *
-     * @var $defaultValidityDays int
+     * @var \EzSystems\PrivacyCookieBundle\Banner\BannerOptions
      */
-    protected $defaultValidityDays;
+    protected $bannerOptions;
 
-    public function __construct(ContainerInterface $container, $defaultCookieName, $defaultValidityDays)
+    public function __construct(ContainerInterface $container, BannerOptions $bannerOptions, Banner $banner)
     {
         $this->container = $container;
-        $this->defaultCookieName = $defaultCookieName;
-        $this->defaultValidityDays = $defaultValidityDays;
+        $this->bannerOptions = $bannerOptions;
+        $this->banner = $banner;
     }
 
     public function getName()
@@ -52,7 +50,7 @@ class PrivacyCookieTwigExtension extends Twig_Extension
     {
         return array(
             'show_privacy_cookie_banner' => new Twig_Function_Method($this, 'showPrivacyCookieBanner', array(
-                'is_safe' => array( 'html' )
+                'is_safe' => array('html')
             )),
         );
     }
@@ -61,23 +59,17 @@ class PrivacyCookieTwigExtension extends Twig_Extension
      * Render cookie privacy banner snippet code
      * - should be included at the end of template before the body ending tag
      *
-     * @param string $policyUrl cookie policy page address (not required, no policy link will be shown)
-     * @param array $options optional parameters:
-     *        cookieName - name to be used to store cookie status
-     *        days - for how many days this banner should be hidden when user accepts policy?
-     *        bannerCaption - replace default banner message caption
+     * @param string $policyPageUrl cookie policy page address (not required, no policy link will be shown)
+     * @param array $options override default options
      * @return string
      */
-    public function showPrivacyCookieBanner($policyUrl = null, array $options = array())
+    public function showPrivacyCookieBanner($policyPageUrl = null, $options = array())
     {
+        $options['policyPageUrl'] = $policyPageUrl;
+
         return $this->container->get("templating")->render(
             '@EzSystemsPrivacyCookieBundle/Resources/views/privacycookie.html.twig',
-            array(
-                'policyUrl' => $policyUrl,
-                'cookieName' => empty($options[ 'cookieName' ]) ? $this->defaultCookieName : $options[ 'cookieName' ],
-                'days' => empty($options[ 'days' ]) ? $this->defaultValidityDays : $options[ 'days' ],
-                'bannerCaption' => empty($options[ 'bannerCaption' ]) ? null : $options[ 'bannerCaption' ]
-            )
+            $this->bannerOptions->map($options, $this->banner)
         );
     }
 }
