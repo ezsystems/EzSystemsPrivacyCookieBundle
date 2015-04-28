@@ -8,7 +8,7 @@ namespace EzSystems\PrivacyCookieBundle\Twig;
 use EzSystems\PrivacyCookieBundle\Banner\Banner;
 use EzSystems\PrivacyCookieBundle\Banner\BannerOptions;
 use Twig_Extension;
-use Twig_Function_Method;
+use Twig_SimpleFunction;
 use Twig_Environment;
 
 /**
@@ -40,7 +40,7 @@ class PrivacyCookieTwigExtension extends Twig_Extension
     public function getFunctions()
     {
         return array(
-            'show_privacy_cookie_banner' => new Twig_Function_Method($this, 'showPrivacyCookieBanner', array(
+            new Twig_SimpleFunction('show_privacy_cookie_banner', array($this, 'showPrivacyCookieBanner'), array(
                 'is_safe' => array('html'),
                 'needs_environment' => true
             )),
