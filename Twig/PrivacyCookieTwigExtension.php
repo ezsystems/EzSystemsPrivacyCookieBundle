@@ -7,23 +7,15 @@ namespace EzSystems\PrivacyCookieBundle\Twig;
 
 use EzSystems\PrivacyCookieBundle\Banner\Banner;
 use EzSystems\PrivacyCookieBundle\Banner\BannerOptions;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Twig_Extension;
 use Twig_Function_Method;
+use Twig_Environment;
 
 /**
  * PrivacyCookie Twig helper which renders necessary snippet code.
  */
 class PrivacyCookieTwigExtension extends Twig_Extension
 {
-    /**
-     * we must inject service_container this way
-     * @link https://github.com/symfony/symfony/issues/2347
-     *
-     * @var \Symfony\Component\DependencyInjection\ContainerInterface
-     */
-    protected $container;
-
     /**
      * @var \EzSystems\PrivacyCookieBundle\Banner\Banner
      */
@@ -34,9 +26,8 @@ class PrivacyCookieTwigExtension extends Twig_Extension
      */
     protected $bannerOptions;
 
-    public function __construct(ContainerInterface $container, BannerOptions $bannerOptions, Banner $banner)
+    public function __construct(BannerOptions $bannerOptions, Banner $banner)
     {
-        $this->container = $container;
         $this->bannerOptions = $bannerOptions;
         $this->banner = $banner;
     }
@@ -50,7 +41,8 @@ class PrivacyCookieTwigExtension extends Twig_Extension
     {
         return array(
             'show_privacy_cookie_banner' => new Twig_Function_Method($this, 'showPrivacyCookieBanner', array(
-                'is_safe' => array('html')
+                'is_safe' => array('html'),
+                'needs_environment' => true
             )),
         );
     }
@@ -59,15 +51,16 @@ class PrivacyCookieTwigExtension extends Twig_Extension
      * Render cookie privacy banner snippet code
      * - should be included at the end of template before the body ending tag
      *
+     * @param Twig_Environment $twigEnvironment
      * @param string $policyPageUrl cookie policy page address (not required, no policy link will be shown)
      * @param array $options override default options
      * @return string
      */
-    public function showPrivacyCookieBanner($policyPageUrl = null, $options = array())
+    public function showPrivacyCookieBanner(Twig_Environment $twigEnvironment, $policyPageUrl = null, $options = array())
     {
         $options['policyPageUrl'] = $policyPageUrl;
 
-        return $this->container->get("templating")->render(
+        return $twigEnvironment->render(
             '@EzSystemsPrivacyCookieBundle/Resources/views/privacycookie.html.twig',
             $this->bannerOptions->map($options, $this->banner)
         );
