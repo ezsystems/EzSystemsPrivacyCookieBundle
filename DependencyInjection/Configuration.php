@@ -26,6 +26,19 @@ class Configuration extends SiteAccessConfiguration
                 ->defaultValue('365')
                 ->info('how many days banner should be hidden when user accepts policy?')
                 ->isRequired()
+            ->end()
+            ->scalarNode('banner_caption')
+                ->defaultValue('Cookies help us create a good experience. By using our website, you agree to our use of cookies.')
+                ->info('banner description')
+                ->isRequired()
+            ->end()
+            ->scalarNode('banner_link_text')
+                ->defaultValue('Learn more')
+                ->info('banner policy link caption')
+                ->isRequired()
+            ->end()
+            ->scalarNode('banner_link_url')
+                ->info('banner policy address')
             ->end();
 
         return $treeBuilder;
