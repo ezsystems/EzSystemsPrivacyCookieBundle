@@ -4,8 +4,10 @@ This bundle adds privacy cookie banner into Symfony 2 application (eZ Publish / 
 
 ## Requirements
 
-- any Symfony v2.x application
+- any Symfony v2.6 or newer application _(*)_
 - BootstrapJS v3.x
+
+_(*) if you are running Symfony v2.5 you should install v0.1 of this bundle_
 
 ## Installation
 This package is available via composer, so the instructions below are similar to how you install any other open source Symfony Bundle.
@@ -40,13 +42,13 @@ You should also add BootstrapJS libraries into your project.
 If you are installing bundle via `composer require` you must also copy assets to your project `web` directory. You can do this by calling Symfony built-in command from the project root directory:
 
 ```
-php app/console assets:install
+php app/console assets:install --symlink
 ```
 
 If you are using eZ Publish / eZ Platform:
 
 ```
-php ezpublish/console assets:install
+php ezpublish/console assets:install --symlink
 ```
 
 ## Usage
@@ -77,3 +79,7 @@ or
     days: 7,
     bannerCaption: 'Nice to see you here'}) }}
 ```
+
+##Abstraction
+
+Privacy Cookie Bundle v0.2 allows to increase abstraction level on the implementation side. Example of usage is shown on [EzDemoBundle](https://github.com/ezsystems/DemoBundle) (part of the eZ Publish / eZ Platform) in which banner options are retrieved from specified content type structure.
