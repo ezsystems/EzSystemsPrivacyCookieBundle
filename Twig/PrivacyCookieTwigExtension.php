@@ -2,7 +2,6 @@
 /**
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-
 namespace EzSystems\PrivacyCookieBundle\Twig;
 
 use EzSystems\PrivacyCookieBundle\Banner\Banner;
@@ -42,14 +41,14 @@ class PrivacyCookieTwigExtension extends Twig_Extension
         return array(
             new Twig_SimpleFunction('show_privacy_cookie_banner', array($this, 'showPrivacyCookieBanner'), array(
                 'is_safe' => array('html'),
-                'needs_environment' => true
+                'needs_environment' => true,
             )),
         );
     }
 
     /**
      * Render cookie privacy banner snippet code
-     * - should be included at the end of template before the body ending tag
+     * - should be included at the end of template before the body ending tag.
      *
      * @param Twig_Environment $twigEnvironment
      * @param string $policyPageUrl cookie policy page address (not required, no policy link will be shown)

@@ -2,10 +2,7 @@
 /**
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-
 namespace EzSystems\PrivacyCookieBundle\Banner;
-
-use \EzSystems\PrivacyCookieBundle\Banner\Banner;
 
 class BannerOptions
 {
@@ -21,8 +18,7 @@ class BannerOptions
         $bannerOptions = get_object_vars($banner);
 
         $validatedOptions = array();
-        foreach ($bannerOptions as $name => $value)
-        {
+        foreach ($bannerOptions as $name => $value) {
             $validatedOptions[$name] = empty($options[$name]) ? $value : $options[$name];
         }
 
