@@ -1,5 +1,6 @@
 <?php
 /**
+ * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace EzSystems\PrivacyCookieBundle\Banner;
@@ -7,10 +8,11 @@ namespace EzSystems\PrivacyCookieBundle\Banner;
 class BannerOptions
 {
     /**
-     * Map banner options.
+     * Map additional options used by Banner object.
      *
      * @param array $options
      * @param \EzSystems\PrivacyCookieBundle\Banner\Banner $banner
+     *
      * @return array
      */
     public function map(array $options, Banner $banner)

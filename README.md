@@ -13,12 +13,12 @@ _(*) if you are running Symfony v2.5 you should install v0.1 of this bundle_
 This package is available via composer, so the instructions below are similar to how you install any other open source Symfony Bundle.
 
 Run the following command in a terminal, from your Symfony installation root (pick most recent release):
-```
+```bash
 php composer.phar require ezsystems/privacy-cookie-bundle
 ```
 
 Enable the bundle in `app/AppKernel.php` (for regular Symfony application) or `ezpublish\EzPublishKernel.php` (for eZ Publish / eZ Platform):
-```
+```php
 $bundles = array(
     // existing bundles
     new EzSystems\PrivacyCookieBundle\EzSystemsPrivacyCookieBundle()
@@ -41,13 +41,13 @@ You should also add BootstrapJS libraries into your project.
 
 If you are installing bundle via `composer require` you must also copy assets to your project `web` directory. You can do this by calling Symfony built-in command from the project root directory:
 
-```
+```bash
 php app/console assets:install --symlink
 ```
 
 If you are using eZ Publish / eZ Platform:
 
-```
+```bash
 php ezpublish/console assets:install --symlink
 ```
 
@@ -67,13 +67,13 @@ bannerCaption | Cookies help us create a good experience (...) | Sets your own b
 
 Example usage:
 
-```
+```twig
 {{ show_privacy_cookie_banner('http://ez.no/Privacy-policy') }}
 ```
 
 or
 
-```
+```twig
 {{ show_privacy_cookie_banner(path('ez_urlalias', {contentId: 94}), {
     cookieName: 'myCookie',
     days: 7,
