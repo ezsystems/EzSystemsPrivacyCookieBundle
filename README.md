@@ -53,7 +53,7 @@ php ezpublish/console assets:install --symlink
 
 ## Usage
 
-Insert the following `{{ show_privacy_cookie_banner(%privacy_policy_url%) }}` helper somewhere in your footer template before body ending tag. Replace `%privacy_policy_url%` parameter with your policy page address.
+Insert the following `{{ show_privacy_cookie_banner(%privacy_policy_url%) }}` helper somewhere in your footer template before the body ending tag. Replace the `%privacy_policy_url%` parameter with your policy page address.
 
 Note that `%privacy_policy_url%` parameter is not required, in this case no policy link will be shown.
 
