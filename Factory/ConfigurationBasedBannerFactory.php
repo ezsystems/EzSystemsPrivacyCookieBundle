@@ -1,5 +1,6 @@
 <?php
 /**
+ * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace EzSystems\PrivacyCookieBundle\Factory;
@@ -9,6 +10,9 @@ use EzSystems\PrivacyCookieBundle\Banner\BannerFactory;
 
 class ConfigurationBasedBannerFactory implements BannerFactory
 {
+    /**
+     * {@inheritdoc}
+     */
     public static function build(array $configuration = array())
     {
         $banner = new Banner();

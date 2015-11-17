@@ -1,8 +1,7 @@
-/*
- * Copyright (C) eZ Systems AS. All rights reserved.
- * For full copyright and license information view LICENSE file distributed with this source code.
+/**
+ * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-
 (function (global, doc) {
     var eZ = global.eZ = global.eZ || {};
 
