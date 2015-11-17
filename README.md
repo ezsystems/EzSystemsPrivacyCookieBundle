@@ -4,20 +4,21 @@ This bundle adds privacy cookie banner into Symfony 2 application (eZ Publish / 
 
 ## Requirements
 
-- any Symfony v2.6 or newer application _(*)_
+- Symfony v2.6 or later _(*)_
 - BootstrapJS v3.x
 
-_(*) if you are running Symfony v2.5 you should install v0.1 of this bundle_
+_(*) if you are using Symfony v2.5 you should install v0.1 of this bundle_
 
 ## Installation
-This package is available via composer, so the instructions below are similar to how you install any other open source Symfony Bundle.
+This package is available via Composer, so the instructions below are similar to how you install any other open source Symfony Bundle.
 
 Run the following command in a terminal, from your Symfony installation root (pick most recent release):
 ```bash
 php composer.phar require ezsystems/privacy-cookie-bundle
 ```
 
-Enable the bundle in `app/AppKernel.php` (for regular Symfony application) or `ezpublish\EzPublishKernel.php` (for eZ Publish / eZ Platform):
+Enable the bundle in `app/AppKernel.php` file (for regular Symfony application) or `ezpublish\EzPublishKernel.php` file (for eZ Publish / eZ Platform):
+
 ```php
 $bundles = array(
     // existing bundles
@@ -53,19 +54,19 @@ php ezpublish/console assets:install --symlink
 
 ## Usage
 
-Place following helper `{{ show_privacy_cookie_banner(%privacy_policy_url%) }}` somewhere in your footer template before body ending tag. Replace `%privacy_policy_url%` with your policy page address.
+Insert the following `{{ show_privacy_cookie_banner(%privacy_policy_url%) }}` helper somewhere in your footer template before the body ending tag. Replace the `%privacy_policy_url%` parameter with your policy page address.
 
-Note that %privacy_policy_url% is not required, in this case no policy link will be shown.
+Note that the `%privacy_policy_url%` parameter is not required, in this case no policy link will be shown.
 
-Optional parameters can be set as a second argument in an array format:
+The following optional parameters can be set as a second argument in an array format:
 
 Parameter     | Default value                                  | Description
 ------------- | ---------------------------------------------- | -----------
 cookieName    | privacyCookieAccepted                          | Sets your own status cookie name
-days          | 365                                            | How many days privacy banner should be hidden when user accepts policy?
+days          | 365                                            | Says how many days privacy banner should be hidden when user accepts policy?
 bannerCaption | Cookies help us create a good experience (...) | Sets your own banner message caption
 
-Example usage:
+Example of usage:
 
 ```twig
 {{ show_privacy_cookie_banner('http://ez.no/Privacy-policy') }}
@@ -82,4 +83,4 @@ or
 
 ##Abstraction
 
-Privacy Cookie Bundle v0.2 allows to increase abstraction level on the implementation side. Example of usage is shown on [EzDemoBundle](https://github.com/ezsystems/DemoBundle) (part of the eZ Publish / eZ Platform) in which banner options are retrieved from specified content type structure.
+Privacy Cookie Bundle v0.2 allows increasing the abstraction level on the implementation side. Example of the usage can be see at [EzDemoBundle](https://github.com/ezsystems/DemoBundle). Banner options are retrieved from a specified Content Type structure.
