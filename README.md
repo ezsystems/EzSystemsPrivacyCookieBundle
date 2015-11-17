@@ -55,7 +55,7 @@ php ezpublish/console assets:install --symlink
 
 Insert the following `{{ show_privacy_cookie_banner(%privacy_policy_url%) }}` helper somewhere in your footer template before the body ending tag. Replace the `%privacy_policy_url%` parameter with your policy page address.
 
-Note that `%privacy_policy_url%` parameter is not required, in this case no policy link will be shown.
+Note that the `%privacy_policy_url%` parameter is not required, in this case no policy link will be shown.
 
 The following optional parameters can be set as a second argument in an array format:
 
@@ -82,4 +82,4 @@ or
 
 ##Abstraction
 
-Privacy Cookie Bundle v0.2 allows to increase abstraction level on the implementation side. Example of the usage can be see at [EzDemoBundle](https://github.com/ezsystems/DemoBundle). Banner options are retrieved from a specified content type structure.
+Privacy Cookie Bundle v0.2 allows increasing the abstraction level on the implementation side. Example of the usage can be see at [EzDemoBundle](https://github.com/ezsystems/DemoBundle). Banner options are retrieved from a specified Content Type structure.
