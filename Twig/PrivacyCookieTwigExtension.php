@@ -32,17 +32,11 @@ class PrivacyCookieTwigExtension extends Twig_Extension
         $this->banner = $banner;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getName()
     {
         return 'ez_privacy_cookie_extension';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getFunctions()
     {
         return array(
@@ -54,8 +48,8 @@ class PrivacyCookieTwigExtension extends Twig_Extension
     }
 
     /**
-     * Render cookie privacy banner snippet code
-     * - should be included at the end of template before the body ending tag.
+     * Renders cookie privacy banner snippet code.
+     * This helper should be included at the end of template before the body ending tag.
      *
      * @param \Twig_Environment $twigEnvironment
      * @param string $policyPageUrl cookie policy page address (not required, no policy link will be shown)

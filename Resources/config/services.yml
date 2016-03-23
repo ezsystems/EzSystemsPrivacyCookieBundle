@@ -1,6 +1,6 @@
 parameters:
-    ez_privacy_cookie_twig_extension: EzSystems\PrivacyCookieBundle\Twig\PrivacyCookieTwigExtension
-    ez_privacy_cookie.banner_factory.class: \EzSystems\PrivacyCookieBundle\Banner\BannerFactory
+    ez_privacy_cookie.twig_extension.class: EzSystems\PrivacyCookieBundle\Twig\PrivacyCookieTwigExtension
+    ez_privacy_cookie.banner_factory.class: EzSystems\PrivacyCookieBundle\Banner\BannerFactory
     ez_privacy_cookie.configuration_banner_factory.class: EzSystems\PrivacyCookieBundle\Factory\ConfigurationBasedBannerFactory
     ez_privacy_cookie.banner_options.class: EzSystems\PrivacyCookieBundle\Banner\BannerOptions
 
@@ -8,8 +8,8 @@ services:
     ez_privacy_cookie.banner_options:
         class: %ez_privacy_cookie.banner_options.class%
 
-    ez_privacy_cookie.twig.extension:
-        class: %ez_privacy_cookie_twig_extension%
+    ez_privacy_cookie.twig_extension:
+        class: %ez_privacy_cookie.twig_extension.class%
         arguments:
             - @ez_privacy_cookie.banner_options
             - @ez_privacy_cookie.banner_factory

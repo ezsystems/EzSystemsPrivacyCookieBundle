@@ -1,11 +1,11 @@
 parameters:
-    # how many days banner should be hidden when user accepts policy?
+    # how many days privacy banner should be hidden when user accepts policy?
     ez_privacy_cookie.days: 365
     # name to be used to store cookie status
-    ez_privacy_cookie.cookie_name: "privacyCookieAccepted"
+    ez_privacy_cookie.cookie_name: privacyCookieAccepted
     # banner description
-    ez_privacy_cookie.banner_caption: "Cookies help us create a good experience. By using our website, you agree to our use of cookies."
+    ez_privacy_cookie.banner_caption: Cookies help us create a good experience. By using our website, you agree to our use of cookies.
     # banner policy link caption
-    ez_privacy_cookie.banner_link_text: "Learn more"
+    ez_privacy_cookie.banner_link_text: Learn more
     # banner policy address
-    ez_privacy_cookie.banner_link_url: ""
+    ez_privacy_cookie.banner_link_url: ~

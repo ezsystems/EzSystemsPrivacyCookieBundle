@@ -1,7 +1,7 @@
 {
     "name": "ezsystems/privacy-cookie-bundle",
-    "description": "Privacy cookie banner integration bundle into eZ Publish/eZ Platform",
-    "keywords": ["cookies", "privacy", "policy"],
+    "description": "Privacy cookie banner integration bundle into regular Symfony 2.x application (supports eZ Publish/eZ Platform)",
+    "keywords": ["cookies", "privacy", "policy", "symfony", "ezpublish", "ezplatform"],
     "license": "GPL-2.0",
     "authors": [
         {
@@ -10,8 +10,7 @@
         }
     ],
     "require": {
-        "symfony/symfony": "~2.6",
-        "components/bootstrap": "~3.0"
+        "symfony/symfony": "~2.6"
     },
     "autoload": {
         "psr-4": {

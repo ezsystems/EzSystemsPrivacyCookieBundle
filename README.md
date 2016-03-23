@@ -1,13 +1,12 @@
 # Privacy Cookie Bundle
 
-This bundle adds privacy cookie banner into Symfony 2 application (eZ Publish / eZ Platform).
+This bundle adds privacy cookie banner into Symfony 2 application.
+
+![screenshot](https://cloud.githubusercontent.com/assets/3033038/14012485/5087f198-f1a6-11e5-881c-028bbe806cb3.png)
 
 ## Requirements
 
-- Symfony v2.6 or later _(*)_
-- BootstrapJS v3.x
-
-_(*) if you are using Symfony v2.5 you should install v0.1 of this bundle_
+- Symfony v2.6 or later
 
 ## Installation
 This package is available via Composer, so the instructions below are similar to how you install any other open source Symfony Bundle.
@@ -17,7 +16,7 @@ Run the following command in a terminal, from your Symfony installation root (pi
 php composer.phar require ezsystems/privacy-cookie-bundle
 ```
 
-Enable the bundle in `app/AppKernel.php` file (for regular Symfony application) or `ezpublish\EzPublishKernel.php` file (for eZ Publish / eZ Platform):
+Enable the bundle in `app/AppKernel.php` file:
 
 ```php
 $bundles = array(
@@ -38,18 +37,10 @@ bundles/ezsystemsprivacycookie/css/privacycookie.css
 bundles/ezsystemsprivacycookie/js/privacycookie.js
 ```
 
-You should also add BootstrapJS libraries into your project.
-
 If you are installing bundle via `composer require` you must also copy assets to your project `web` directory. You can do this by calling Symfony built-in command from the project root directory:
 
 ```bash
 php app/console assets:install --symlink
-```
-
-If you are using eZ Publish / eZ Platform:
-
-```bash
-php ezpublish/console assets:install --symlink
 ```
 
 ## Usage
@@ -66,7 +57,7 @@ cookieName    | privacyCookieAccepted                          | Sets your own s
 days          | 365                                            | Says how many days privacy banner should be hidden when user accepts policy?
 bannerCaption | Cookies help us create a good experience (...) | Sets your own banner message caption
 
-Example of usage:
+Example of usage in standard Symfony application:
 
 ```twig
 {{ show_privacy_cookie_banner('http://ez.no/Privacy-policy') }}
@@ -75,12 +66,19 @@ Example of usage:
 or
 
 ```twig
-{{ show_privacy_cookie_banner(path('ez_urlalias', {contentId: 94}), {
-    cookieName: 'myCookie',
-    days: 7,
-    bannerCaption: 'Nice to see you here'}) }}
+{{ show_privacy_cookie_banner('http://ez.no/Privacy-policy', {
+   cookieName: 'myCookie',
+   days: 7,
+   bannerCaption: 'Nice to see you here'
+}) }}
 ```
 
-##Abstraction
+If you are using eZ Publish / Platform you can use `ez_urlalias` to generate path for specified content object:
 
-Privacy Cookie Bundle v0.2 allows increasing the abstraction level on the implementation side. Example of the usage can be see at [EzDemoBundle](https://github.com/ezsystems/DemoBundle). Banner options are retrieved from a specified Content Type structure.
+```twig
+{{ show_privacy_cookie_banner(path('ez_urlalias', {contentId: 94}), {
+   cookieName: 'myCookie',
+   days: 7,
+   bannerCaption: 'Nice to see you here'
+}) }}
+```

@@ -1,4 +1,5 @@
 .privacy-cookie-banner {
+    font-family: Tahoma;
     background: #006A8D;
     overflow: hidden;
     -webkit-transition: all .5s linear;
@@ -29,12 +30,13 @@
 }
 
 .privacy-cookie-banner__message {
-    margin-top: 15px;
     color: #fff;
+    display: inline-block;
+    padding: 15px 20px 0 20px;
+    font-size: 16px;
 }
 
 .privacy-cookie-banner__btn {
-    margin-top: 10px;
     background: #FF6400;
     color: #fff;
     border: none;
@@ -50,9 +52,11 @@
 .privacy-cookie-banner__learn-more {
     margin-top: 14px;
     margin-left: 20px;
+    margin-right: 50px;
     color: #fff;
-    display: block;
+    display: inline-block;
     text-decoration: none;
+    font-size: 16px;
 }
 
 .privacy-cookie-banner__learn-more:hover,
@@ -64,7 +68,7 @@
 .privacy-cookie-banner__close {
     color: #fff;
     margin-top: 21px;
-    display: block;
+    display: inline-block;
     opacity: 1;
     font-size: 10px;
     text-shadow: none;
@@ -78,6 +82,10 @@
 
 .privacy-cookie-banner__action {
     height: 50px;
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+    width: 220px;
 }
 
 @font-face {
