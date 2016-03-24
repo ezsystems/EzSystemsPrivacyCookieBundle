@@ -1,26 +1,19 @@
 <div class="privacy-cookie-banner" id="privacy-cookie-banner">
-    <div class="col-md-1"></div>
-    <div class="col-md-7 privacy-cookie-banner__message">
+    <div class="privacy-cookie-banner__message">
         <p>{{ caption }}</p>
     </div>
-    <div class="col-md-4 privacy-cookie-banner__action">
-        <div class="attribute-link pull-left">
-            <a class="privacy-cookie-banner__btn btn" id="privacy-cookie-banner__privacy-accept" href="javascript:void(0)" title="{{ 'Agree'|trans }}">
-                {{ 'OK'|trans }}
+    <div class="privacy-cookie-banner__action">
+        <a class="privacy-cookie-banner__btn btn" id="privacy-cookie-banner__privacy-accept" href="javascript:void(0)" title="{{ 'Agree'|trans }}">
+            {{ 'OK'|trans }}
+        </a>
+        {% if policyPageUrl is not empty %}
+            <a class="privacy-cookie-banner__learn-more" href="{{ policyPageUrl }}" title="{{ learnMoreText }}">
+                {{ learnMoreText }}
             </a>
-        </div>
-        <div class="attribute-link pull-left">
-            {% if policyPageUrl is not empty %}
-                <a class="privacy-cookie-banner__learn-more" href="{{ policyPageUrl }}" title="{{ learnMoreText }}">
-                    {{ learnMoreText }}
-                </a>
-            {% endif %}
-        </div>
-        <div class="attribute-link pull-right">
-            <a class="privacy-cookie-banner__close" id="privacy-cookie-banner__privacy-close" href="javascript:void(0)" title="{{ 'Close'|trans }}">
-                <i class="privacy-cookie-banner__icon-close"></i>
-            </a>
-        </div>
+        {% endif %}
+        <a class="privacy-cookie-banner__close" id="privacy-cookie-banner__privacy-close" href="javascript:void(0)" title="{{ 'Close'|trans }}">
+            <i class="privacy-cookie-banner__icon-close"></i>
+        </a>
     </div>
 </div>
 

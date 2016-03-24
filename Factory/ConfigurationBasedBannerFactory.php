@@ -10,9 +10,6 @@ use EzSystems\PrivacyCookieBundle\Banner\BannerFactory;
 
 class ConfigurationBasedBannerFactory implements BannerFactory
 {
-    /**
-     * {@inheritdoc}
-     */
     public static function build(array $configuration = array())
     {
         $banner = new Banner();

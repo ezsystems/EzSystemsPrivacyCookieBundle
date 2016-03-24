@@ -5,8 +5,13 @@
  */
 namespace EzSystems\PrivacyCookieBundle;
 
+use EzSystems\PrivacyCookieBundle\DependencyInjection\EzSystemsPrivacyCookieExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class EzSystemsPrivacyCookieBundle extends Bundle
 {
+    public function getContainerExtension()
+    {
+        return new EzSystemsPrivacyCookieExtension();
+    }
 }

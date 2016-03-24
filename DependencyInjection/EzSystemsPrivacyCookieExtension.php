@@ -12,9 +12,6 @@ use Symfony\Component\DependencyInjection\Loader;
 
 class EzSystemsPrivacyCookieExtension extends Extension
 {
-    /**
-     * {@inheritdoc}
-     */
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuration = $this->getConfiguration($configs, $container);
@@ -23,5 +20,14 @@ class EzSystemsPrivacyCookieExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
         $loader->load('default_settings.yml');
+
+        foreach ($config as $key => $value) {
+            $container->setParameter('ez_privacy_cookie.' . $key, $value);
+        }
+    }
+
+    public function getAlias()
+    {
+        return 'ez_privacy_cookie';
     }
 }
