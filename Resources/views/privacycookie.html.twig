@@ -1,21 +1,19 @@
-<div class="privacy-cookie-banner" id="privacy-cookie-banner">
-    <div class="privacy-cookie-banner__message">
-        <p>{{ caption }}</p>
-    </div>
-    <div class="privacy-cookie-banner__action">
-        <a class="privacy-cookie-banner__btn btn" id="privacy-cookie-banner__privacy-accept" href="javascript:void(0)" title="{{ 'Agree'|trans }}">
-            {{ 'OK'|trans }}
-        </a>
-        {% if policyPageUrl is not empty %}
-            <a class="privacy-cookie-banner__learn-more" href="{{ policyPageUrl }}" title="{{ learnMoreText }}">
-                {{ learnMoreText }}
+{% spaceless %}
+    <div class="privacy-cookie-banner" id="privacy-cookie-banner">
+        <div class="privacy-cookie-banner__message">{{ caption }}</div>
+        <div class="privacy-cookie-banner__action">
+            <a class="privacy-cookie-banner__btn btn" id="privacy-cookie-banner__privacy-accept" href="javascript:void(0)" title="{{ 'Agree'|trans }}">{{ 'OK'|trans }}</a>
+            {% if policyPageUrl is not empty %}
+                <a class="privacy-cookie-banner__learn-more" href="{{ policyPageUrl }}" title="{{ learnMoreText }}">
+                    {{ learnMoreText }}
+                </a>
+            {% endif %}
+            <a class="privacy-cookie-banner__close" id="privacy-cookie-banner__privacy-close" href="javascript:void(0)" title="{{ 'Close'|trans }}">
+                <i class="privacy-cookie-banner__icon-close"></i>
             </a>
-        {% endif %}
-        <a class="privacy-cookie-banner__close" id="privacy-cookie-banner__privacy-close" href="javascript:void(0)" title="{{ 'Close'|trans }}">
-            <i class="privacy-cookie-banner__icon-close"></i>
-        </a>
+        </div>
     </div>
-</div>
+{% endspaceless %}
 
 <script>
     {% autoescape 'js' %}

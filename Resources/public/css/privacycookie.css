@@ -41,6 +41,7 @@
     color: #fff;
     border: none;
     height: 30px;
+    text-decoration: none;
 }
 
 .privacy-cookie-banner__btn:hover,
@@ -72,6 +73,7 @@
     opacity: 1;
     font-size: 10px;
     text-shadow: none;
+    text-decoration: none;
 }
 
 .privacy-cookie-banner__close:hover,
@@ -86,6 +88,12 @@
     float: right;
     margin-right: 20px;
     width: 220px;
+}
+
+.privacy-cookie-banner .btn {
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 16px;
 }
 
 @font-face {
