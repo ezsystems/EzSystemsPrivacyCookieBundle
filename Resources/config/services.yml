@@ -6,26 +6,26 @@ parameters:
 
 services:
     ez_privacy_cookie.banner_options:
-        class: %ez_privacy_cookie.banner_options.class%
+        class: '%ez_privacy_cookie.banner_options.class%'
 
     ez_privacy_cookie.twig_extension:
-        class: %ez_privacy_cookie.twig_extension.class%
+        class: '%ez_privacy_cookie.twig_extension.class%'
         arguments:
-            - @ez_privacy_cookie.banner_options
-            - @ez_privacy_cookie.banner_factory
+            - '@ez_privacy_cookie.banner_options'
+            - '@ez_privacy_cookie.banner_factory'
         tags:
             - { name: twig.extension }
 
     ez_privacy_cookie.banner_factory:
-        class: %ez_privacy_cookie.banner_factory.class%
+        class: '%ez_privacy_cookie.banner_factory.class%'
         alias: ez_privacy_cookie.configuration_banner_factory
 
     ez_privacy_cookie.configuration_banner_factory:
-        class: %ez_privacy_cookie.configuration_banner_factory.class%
-        factory: ["%ez_privacy_cookie.configuration_banner_factory.class%", build]
+        class: '%ez_privacy_cookie.configuration_banner_factory.class%'
+        factory: ['%ez_privacy_cookie.configuration_banner_factory.class%', build]
         arguments:
-            - cookie_name: %ez_privacy_cookie.cookie_name%
-              cookie_validity: %ez_privacy_cookie.days%
-              banner_caption: %ez_privacy_cookie.banner_caption%
-              banner_link_text: %ez_privacy_cookie.banner_link_text%
-              banner_link_url: %ez_privacy_cookie.banner_link_url%
+            - cookie_name: '%ez_privacy_cookie.cookie_name%'
+              cookie_validity: '%ez_privacy_cookie.days%'
+              banner_caption: '%ez_privacy_cookie.banner_caption%'
+              banner_link_text: '%ez_privacy_cookie.banner_link_text%'
+              banner_link_url: '%ez_privacy_cookie.banner_link_url%'
