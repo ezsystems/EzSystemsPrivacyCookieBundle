@@ -6,7 +6,7 @@ This bundle adds privacy cookie banner into Symfony 2 application.
 
 ## Requirements
 
-- Symfony v2.6 or later
+- Symfony v2.6 or later (including Symfony 3.x)
 
 ## Installation
 This package is available via Composer, so the instructions below are similar to how you install any other open source Symfony Bundle.
@@ -21,7 +21,10 @@ Enable the bundle in `app/AppKernel.php` file:
 ```php
 $bundles = array(
     // existing bundles
-    new EzSystems\PrivacyCookieBundle\EzSystemsPrivacyCookieBundle()
+    new EzSystems\PrivacyCookieBundle\EzSystemsPrivacyCookieBundle(),
+
+    // starting from Symfony 2.8 you have to enable AsseticBundle manually if you haven't done it before
+    new Symfony\Bundle\AsseticBundle\AsseticBundle()
 );
 ```
 
@@ -37,10 +40,42 @@ bundles/ezsystemsprivacycookie/css/privacycookie.css
 bundles/ezsystemsprivacycookie/js/privacycookie.js
 ```
 
-If you are installing bundle via `composer require` you must also copy assets to your project `web` directory. You can do this by calling Symfony built-in command from the project root directory:
+Add the following minimal configuration in `config.yml` file to enable `Assetic` support in your application (Symfony 2.8 and later):
+
+```yaml
+assetic:
+    debug: '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
+```
+
+If you are installing the bundle via `composer require` you must also copy assets to your project's `web` directory. You can do this by calling Symfony's built-in command from the project root directory:
+
+For Symfony 2.x:
 
 ```bash
 php app/console assets:install --symlink
+```
+
+For Symfony 3.x:
+
+```bash
+php bin/console assets:install --symlink
+```
+
+In production environment you have to dump assets using `Assetic` built-in command:
+
+For Symfony 2.x:
+
+```bash
+php app/console assetic:dump -e=prod
+```
+
+For Symfony 3.x:
+
+```bash
+php bin/console assetic:dump -e=prod
 ```
 
 ## Usage
