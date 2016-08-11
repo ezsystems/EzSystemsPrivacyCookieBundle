@@ -86,11 +86,12 @@ Note that the `%privacy_policy_url%` parameter is not required, in this case no 
 
 The following optional parameters can be set as a second argument in an array format:
 
-Parameter     | Default value                                  | Description
-------------- | ---------------------------------------------- | -----------
-cookieName    | privacyCookieAccepted                          | Sets your own status cookie name
-days          | 365                                            | Says how many days privacy banner should be hidden when user accepts policy?
-bannerCaption | Cookies help us create a good experience (...) | Sets your own banner message caption
+Parameter        | Default value                                  | Description
+---------------- | ---------------------------------------------- | -----------
+cookieName       | privacyCookieAccepted                          | Sets your own status cookie name
+cookieValidity   | 365                                            | Says how many days privacy banner should be hidden when user accepts policy?
+caption          | Cookies help us create a good experience (...) | Sets your own banner message caption
+learnMoreText    | Learn More                                     | Sets title and text of privacy link
 
 Example of usage in standard Symfony application:
 
@@ -103,8 +104,9 @@ or
 ```twig
 {{ show_privacy_cookie_banner('http://ez.no/Privacy-policy', {
    cookieName: 'myCookie',
-   days: 7,
-   bannerCaption: 'Nice to see you here'
+   cookieValidity: 7,
+   caption: 'Nice to see you here',
+   learnMoreText: 'Find out more'
 }) }}
 ```
 
@@ -113,7 +115,7 @@ If you are using eZ Publish / Platform you can use `ez_urlalias` to generate pat
 ```twig
 {{ show_privacy_cookie_banner(path('ez_urlalias', {contentId: 94}), {
    cookieName: 'myCookie',
-   days: 7,
-   bannerCaption: 'Nice to see you here'
+   cookieValidity: 7,
+   caption: 'Nice to see you here'
 }) }}
 ```
