@@ -86,12 +86,12 @@ Note that the `%privacy_policy_url%` parameter is not required, in this case no 
 
 The following optional parameters can be set as a second argument in an array format:
 
-Parameter     | Default value                                  | Description
-------------- | ---------------------------------------------- | -----------
-cookieName    | privacyCookieAccepted                          | Sets your own status cookie name
-cookieValidity          | 365                                            | Says how many days privacy banner should be hidden when user accepts policy?
-caption | Cookies help us create a good experience (...) | Sets your own banner message caption
-learnMoreText | Learn More | Sets title and text of privacy link
+Parameter        | Default value                                  | Description
+---------------- | ---------------------------------------------- | -----------
+cookieName       | privacyCookieAccepted                          | Sets your own status cookie name
+cookieValidity   | 365                                            | Says how many days privacy banner should be hidden when user accepts policy?
+caption          | Cookies help us create a good experience (...) | Sets your own banner message caption
+learnMoreText    | Learn More                                     | Sets title and text of privacy link
 
 Example of usage in standard Symfony application:
 
