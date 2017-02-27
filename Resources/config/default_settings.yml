@@ -3,6 +3,8 @@ parameters:
     ez_privacy_cookie.days: 365
     # name to be used to store cookie status
     ez_privacy_cookie.cookie_name: privacyCookieAccepted
+    # specifies the cookie path
+    ez_privacy_cookie.path: ~
     # banner description
     ez_privacy_cookie.banner_caption: Cookies help us create a good experience. By using our website, you agree to our use of cookies.
     # banner policy link caption

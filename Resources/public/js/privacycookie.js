@@ -17,6 +17,7 @@
         this.acceptElement = document.getElementById(config.acceptId || 'privacy-cookie-banner__privacy-accept');
         this.closeElement = document.getElementById(config.closeId || 'privacy-cookie-banner__privacy-close');
         this.days = config.days || 365;
+        this.path = config.path || null;
     };
 
     /**
@@ -60,19 +61,25 @@
      * @param {string} name
      * @param {string} value
      * @param {int} days
+     * @param {string} path
      */
-    eZ.PrivacyCookieBanner.prototype.setCookie = function (name, value, days) {
+    eZ.PrivacyCookieBanner.prototype.setCookie = function (name, value, days, path) {
         var d = new Date();
         d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
         var expires = 'expires=' + d.toUTCString();
-        document.cookie = name + '=' + value + '; ' + expires;
+
+        var cookiePath = '';
+        if (path) {
+            cookiePath = '; path=' + path;
+        }
+        document.cookie = name + '=' + value + '; ' + expires + cookiePath;
     };
 
     /**
      * Accept privacy policy (set cookie status) and hide banner.
      */
     eZ.PrivacyCookieBanner.prototype.accept = function () {
-        this.setCookie(this.cookieName, '1', this.days);
+        this.setCookie(this.cookieName, '1', this.days, this.path);
         this.hideBanner();
     };
 

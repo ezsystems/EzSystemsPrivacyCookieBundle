@@ -26,6 +26,7 @@ services:
         arguments:
             - cookie_name: '%ez_privacy_cookie.cookie_name%'
               cookie_validity: '%ez_privacy_cookie.days%'
+              cookie_path: '%ez_privacy_cookie.path%'
               banner_caption: '%ez_privacy_cookie.banner_caption%'
               banner_link_text: '%ez_privacy_cookie.banner_link_text%'
               banner_link_url: '%ez_privacy_cookie.banner_link_url%'
