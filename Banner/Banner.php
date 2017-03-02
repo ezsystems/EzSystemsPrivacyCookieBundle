@@ -41,4 +41,11 @@ class Banner
      * @var int
      */
     public $cookieValidity;
+
+    /**
+     * Cookie path.
+     *
+     * @var string|null
+     */
+    public $cookiePath;
 }

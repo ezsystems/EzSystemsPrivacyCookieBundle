@@ -16,6 +16,7 @@ class ConfigurationBasedBannerFactory implements BannerFactory
 
         $banner->cookieName = $configuration['cookie_name'];
         $banner->cookieValidity = $configuration['cookie_validity'];
+        $banner->cookiePath = $configuration['cookie_path'];
         $banner->caption = $configuration['banner_caption'];
         $banner->learnMoreText = $configuration['banner_link_text'];
         $banner->policyPageUrl = $configuration['banner_link_url'];

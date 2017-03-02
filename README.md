@@ -92,6 +92,7 @@ Parameter        | Default value                                  | Description
 ---------------- | ---------------------------------------------- | -----------
 cookieName       | privacyCookieAccepted                          | Sets your own status cookie name
 cookieValidity   | 365                                            | Says how many days privacy banner should be hidden when user accepts policy?
+cookiePath       | null                                           | Specifies the cookie path (by default cookie will be available only for the current domain)
 caption          | Cookies help us create a good experience (...) | Sets your own banner message caption
 learnMoreText    | Learn More                                     | Sets title and text of privacy link
 
@@ -107,6 +108,7 @@ or
 {{ show_privacy_cookie_banner('http://ez.no/Privacy-policy', {
    cookieName: 'myCookie',
    cookieValidity: 7,
+   cookiePath: '/',
    caption: 'Nice to see you here',
    learnMoreText: 'Find out more'
 }) }}
