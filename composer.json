@@ -3,6 +3,7 @@
     "description": "Privacy cookie banner integration bundle into regular Symfony 2.x application (supports eZ Publish/eZ Platform)",
     "keywords": ["cookies", "privacy", "policy", "symfony", "ezpublish", "ezplatform", "twig"],
     "license": "GPL-2.0",
+    "type": "symfony-bundle",
     "authors": [
         {
           "name": "eZ Platform dev-team & eZ Community",
