@@ -50,7 +50,7 @@ class Banner
     public $cookiePath;
 
     /**
-     * Other params
+     * Other params.
      *
      * @var array
      */
