@@ -48,4 +48,11 @@ class Banner
      * @var string|null
      */
     public $cookiePath;
+
+    /**
+     * Other params
+     *
+     * @var array
+     */
+    public $otherParams = array();
 }

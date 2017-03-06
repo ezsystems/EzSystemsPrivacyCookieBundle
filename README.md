@@ -95,6 +95,7 @@ cookieValidity   | 365                                            | Says how man
 cookiePath       | null                                           | Specifies the cookie path (by default cookie will be available only for the current domain)
 caption          | Cookies help us create a good experience (...) | Sets your own banner message caption
 learnMoreText    | Learn More                                     | Sets title and text of privacy link
+otherParams      | Other Params                                   | Send other params in your override template
 
 Example of usage in standard Symfony application:
 
@@ -121,5 +122,17 @@ If you are using eZ Publish / Platform you can use `ez_urlalias` to generate pat
    cookieName: 'myCookie',
    cookieValidity: 7,
    caption: 'Nice to see you here'
+}) }}
+```
+
+Example of usage otherParams:
+
+```twig
+{{ show_privacy_cookie_banner('http://ez.no/Privacy-policy', {
+   cookieName: 'myCookie',
+   otherParams: {
+       my_param1: value_my_param1 ,
+       my_param2: value_my_param2
+   }
 }) }}
 ```
