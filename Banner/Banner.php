@@ -50,9 +50,9 @@ class Banner
     public $cookiePath;
 
     /**
-     * Other params.
+     * Extra params.
      *
      * @var array
      */
-    public $otherParams = array();
+    public $extraParams = array();
 }
