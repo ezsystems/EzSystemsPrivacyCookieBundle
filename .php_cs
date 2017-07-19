@@ -4,6 +4,7 @@ return PhpCsFixer\Config::create()
         '@Symfony' => true,
         '@Symfony:risky' => true,
         'concat_space' => ['spacing' => 'one'],
+        'phpdoc_align' => false,
         'phpdoc_separation' => false,
         'phpdoc_to_comment' => false,
         'cast_spaces' => false,
