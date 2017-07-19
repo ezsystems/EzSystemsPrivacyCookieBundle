@@ -1,3 +1,4 @@
+cake1
 # Privacy Cookie Bundle
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3687a8b0-c268-49cf-b072-15a10d920709/big.png)](https://insight.sensiolabs.com/projects/3687a8b0-c268-49cf-b072-15a10d920709)
@@ -24,9 +25,6 @@ Enable the bundle in `app/AppKernel.php` file:
 $bundles = array(
     // existing bundles
     new EzSystems\PrivacyCookieBundle\EzSystemsPrivacyCookieBundle(),
-
-    // starting from Symfony 2.8 you have to enable AsseticBundle manually if you haven't done it before
-    new Symfony\Bundle\AsseticBundle\AsseticBundle()
 );
 ```
 
@@ -41,6 +39,16 @@ bundles/ezsystemsprivacycookie/css/privacycookie.css
 ```
 bundles/ezsystemsprivacycookie/js/privacycookie.js
 ```
+
+### Assetic (*Optional*)
+Enable the Assetic bundle in `app/AppKernel.php` file:
+
+$bundles = array(
+    // ...
+    // starting from Symfony 2.8 you have to enable AsseticBundle manually if you haven't done it before
+    new Symfony\Bundle\AsseticBundle\AsseticBundle()
+);
+
 
 Add the following minimal configuration in `config.yml` file to enable `Assetic` support in your application (Symfony 2.8 and later):
 
@@ -136,3 +144,4 @@ Example of usage extraParams:
    }
 }) }}
 ```
+
