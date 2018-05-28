@@ -21,7 +21,7 @@
             var privacyCookieBanner = new eZ.PrivacyCookieBanner({
                 cookieName: '{{ cookieName }}',
                 days: {{ cookieValidity }},
-                path: {{ cookiePath }}
+                path: '{{ cookiePath }}'
             });
             setTimeout(function () {
                 privacyCookieBanner.show()
