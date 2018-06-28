@@ -2,7 +2,7 @@
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3687a8b0-c268-49cf-b072-15a10d920709/big.png)](https://insight.sensiolabs.com/projects/3687a8b0-c268-49cf-b072-15a10d920709)
 
-This bundle adds privacy cookie banner into Symfony 2 application.
+This bundle adds privacy cookie banner into Symfony applications.
 
 ![screenshot](https://cloud.githubusercontent.com/assets/3033038/14012485/5087f198-f1a6-11e5-881c-028bbe806cb3.png)
 
